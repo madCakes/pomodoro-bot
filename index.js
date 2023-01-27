@@ -30,6 +30,11 @@ for (const file of commandFiles) {
   }
 }
 
+// testing bot online
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!.`);
+});
+
 // Create listener for command interactions
 client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
@@ -51,6 +56,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
     });
   }
 });
+
+// Log in to Discord
+client.login(token);
 
 // PROG
 // Command Handling https://discordjs.guide/creating-your-bot/command-handling.html#loading-command-files
