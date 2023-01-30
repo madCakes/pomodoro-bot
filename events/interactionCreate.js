@@ -5,6 +5,7 @@ module.exports = {
   async execute(interaction) {
     // ignore non-slash commands
     if (!interaction.isChatInputCommand()) return;
+    console.log("1");
 
     const command = interaction.client.commands.get(interaction.commandName);
 
@@ -16,7 +17,9 @@ module.exports = {
     }
 
     try {
+      console.log("2");
       await command.execute(interaction);
+      console.log("3");
     } catch (error) {
       console.error(`Error executing ${interaction.commandName}`);
       console.error(error);

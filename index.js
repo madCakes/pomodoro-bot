@@ -30,6 +30,7 @@ for (const file of commandFiles) {
   }
 }
 
+console.log("❗");
 // Read event files
 const eventsPath = path.join(__dirname, "events");
 const eventFiles = fs
@@ -42,7 +43,10 @@ for (const file of eventFiles) {
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args));
   } else {
-    client.on(event.name, (...args) => event.execute(...args));
+    client.on(event.name, (...args) => {
+      console.log(event.name);
+      event.execute(...args);
+    });
   }
 }
 // Log in to Discord
